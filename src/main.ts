@@ -23,7 +23,7 @@ import { createConnectTransport } from "@connectrpc/connect-web";
 import { createClient, ConnectError, Code } from "@connectrpc/connect";
 import { LabelService } from "@buf/bufbuild_registry.bufbuild_es/buf/registry/module/v1/label_service_pb";
 import { LabelRefSchema } from "@buf/bufbuild_registry.bufbuild_es/buf/registry/module/v1/label_pb";
-import * as parseDiff from "parse-diff";
+import parseDiff from "parse-diff";
 
 import { getInputs, Inputs, getEnv } from "./inputs";
 import { Outputs } from "./outputs";
@@ -63,10 +63,6 @@ async function main() {
   core.setOutput(Outputs.BufVersion, bufVersion);
   core.setOutput(Outputs.BufPath, bufPath);
   core.saveState(Outputs.BufPath, bufPath);
-  if (inputs.github_actor == "dependabot[bot]") {
-    core.info("Skipping steps for dependabot");
-    return;
-  }
   await login(bufPath, inputs);
   if (inputs.setup_only) {
     core.info("Setup only, skipping steps");
