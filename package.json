@@ -27,7 +27,7 @@
   "devDependencies": {
     "@bufbuild/license-header": "^0.0.4",
     "@eslint/js": "^10.0.1",
-    "@types/node": "^26.1.2",
+    "@types/node": "^26.2.0",
     "@types/semver": "^7.7.0",
     "@vercel/ncc": "^0.44.1",
     "eslint": "^10.0.3",
